@@ -11,7 +11,7 @@ body {
 /* Header hero section */
 .hero {
   position: relative;
-  background: url('assets/head.jpg') center/cover no-repeat;
+  background: url('assets/projekt1/main.jpg') center/cover no-repeat;
   height: 90vh;
   display: flex;
   justify-content: center;
@@ -57,28 +57,27 @@ section h2 {
   color: #222;
 }
 
-/* Gallery */
-.gallery {
+/* Projects gallery */
+.projects {
   display: flex;
   justify-content: center;
   gap: 1rem;
   flex-wrap: wrap;
 }
 
-.gallery img {
+.project-main {
   width: 250px;
   border-radius: 15px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
-  cursor: pointer; /* dáva vizuálnu hint, že sa dá interagovať */
+  cursor: pointer;
 }
 
-.gallery img:hover {
-  transform: scale(1.2); /* zväčší obrázok o 20% */
-  box-shadow: 0 12px 25px rgba(0,0,0,0.4); /* väčší tieň */
-  z-index: 10; /* aby sa obrázok „vzniesol“ nad ostatné */
+.project-main:hover {
+  transform: scale(1.2);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+  z-index: 10;
 }
-
 
 /* Contact */
 #contact p {
@@ -113,15 +112,8 @@ footer {
   justify-content: center;
   align-items: center;
   z-index: 1000;
-
-  /* animácia */
   opacity: 0;
-  animation: fadeInLightbox 0.4s forwards;
-}
-
-@keyframes fadeInLightbox {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  transition: opacity 0.4s ease;
 }
 
 .lightbox-img {
@@ -130,23 +122,36 @@ footer {
   border-radius: 10px;
   box-shadow: 0 5px 25px rgba(0,0,0,0.5);
   transform: scale(0.8);
-  animation: zoomIn 0.4s forwards;
+  transition: transform 0.4s ease;
 }
 
-@keyframes zoomIn {
-  to { transform: scale(1); }
-}
-
-.close {
+.close, .prev, .next {
   position: absolute;
-  top: 20px;
-  right: 30px;
   color: white;
   font-size: 3rem;
   font-weight: bold;
   cursor: pointer;
   user-select: none;
+  padding: 0 10px;
 }
-.close:hover {
+
+.close {
+  top: 20px;
+  right: 30px;
+}
+
+.prev {
+  left: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.next {
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.close:hover, .prev:hover, .next:hover {
   color: #ff5555;
 }
