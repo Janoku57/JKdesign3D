@@ -152,6 +152,25 @@
   thumbNext.addEventListener("click", () => {
     thumbnails.scrollBy({ left: 100, behavior: "smooth" });
   });
+
+  document.addEventListener("keydown", (e) => {
+  if (lightbox.style.display !== "flex") return; // funguje len keď je otvorený lightbox
+
+  switch(e.key) {
+    case "ArrowLeft":
+      currentIndex = (currentIndex - 1 + projects[currentProject].length) % projects[currentProject].length;
+      showImage(currentIndex);
+      break;
+    case "ArrowRight":
+      currentIndex = (currentIndex + 1) % projects[currentProject].length;
+      showImage(currentIndex);
+      break;
+    case "Escape":
+      lightbox.style.display = "none";
+      thumbnails.style.transform = "translateX(0)";
+      break;
+  }
+});
 </script>
 
 </body>
