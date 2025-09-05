@@ -138,6 +138,64 @@
   function scrollToActive() {
     const activeThumb = thumbnails.querySelector(".active");
     if (!activeThumb) return;
-    const
+    const container = thumbnails.parentElement;
+    const containerCenter = container.offsetWidth / 2;
+    const activeCenter = activeThumb.offsetLeft + activeThumb.offsetWidth / 2;
+    const scrollPos = activeCenter - containerCenter;
+    thumbnails.style.transform = `translateX(${-scrollPos}px)`;
+  }
 
-  
+  galleryImages.forEach(img => {
+    img.addEventListener("click", () => {
+      currentProject = img.dataset.project;
+      showImage(0);
+      lightbox.style.display = "flex";
+    });
+  });
+
+  closeBtn.addEventListener("click", () => {
+    lightbox.style.display = "none";
+    thumbnails.style.transform = "translateX(0)";
+  });
+
+  prev.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + projects[currentProject].length) % projects[currentProject].length;
+    showImage(currentIndex);
+  });
+
+  next.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % projects[currentProject].length;
+    showImage(currentIndex);
+  });
+
+  thumbPrev.addEventListener("click", () => {
+    thumbnails.scrollBy({ left: -100, behavior: "smooth" });
+  });
+
+  thumbNext.addEventListener("click", () => {
+    thumbnails.scrollBy({ left: 100, behavior: "smooth" });
+  });
+
+  // Ovládanie klávesnicou
+  document.addEventListener("keydown", (e) => {
+    if (lightbox.style.display !== "flex") return;
+
+    switch(e.key) {
+      case "ArrowLeft":
+        currentIndex = (currentIndex - 1 + projects[currentProject].length) % projects[currentProject].length;
+        showImage(currentIndex);
+        break;
+      case "ArrowRight":
+        currentIndex = (currentIndex + 1) % projects[currentProject].length;
+        showImage(currentIndex);
+        break;
+      case "Escape":
+        lightbox.style.display = "none";
+        thumbnails.style.transform = "translateX(0)";
+        break;
+    }
+  });
+</script>
+
+</body>
+</html>
