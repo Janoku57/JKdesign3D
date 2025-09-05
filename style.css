@@ -100,3 +100,53 @@ footer {
   padding: 1rem;
   margin-top: 2rem;
 }
+
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+
+  /* animácia */
+  opacity: 0;
+  animation: fadeInLightbox 0.4s forwards;
+}
+
+@keyframes fadeInLightbox {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.lightbox-img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+  transform: scale(0.8);
+  animation: zoomIn 0.4s forwards;
+}
+
+@keyframes zoomIn {
+  to { transform: scale(1); }
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 3rem;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+}
+.close:hover {
+  color: #ff5555;
+}
