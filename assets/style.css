@@ -1,0 +1,31 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+header {
+  background: #222;
+  color: #fff;
+  padding: 2rem;
+}
+
+.gallery {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.gallery img {
+  width: 200px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+footer {
+  background: #f4f4f4;
+  padding: 1rem;
+  margin-top: 2rem;
+}
