@@ -65,6 +65,11 @@ section h2 {
   flex-wrap: wrap;
 }
 
+.project {
+  position: relative;
+  display: inline-block;
+}
+
 .project-main {
   width: 250px;
   border-radius: 15px;
@@ -73,10 +78,30 @@ section h2 {
   cursor: pointer;
 }
 
-.project-main:hover {
+.project:hover .project-main {
   transform: scale(1.2);
   box-shadow: 0 12px 25px rgba(0,0,0,0.4);
   z-index: 10;
+}
+
+/* Caption on hover */
+.caption {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 0.5rem;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  font-size: 1rem;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  border-radius: 0 0 15px 15px;
+}
+
+.project:hover .caption {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Contact */
