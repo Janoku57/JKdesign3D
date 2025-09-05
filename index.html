@@ -18,10 +18,23 @@
   <!-- PORTFOLIO -->
   <section id="portfolio">
     <h2>Portfólio</h2>
-    <div class="gallery">
-      <img src="assets/model1.jpg" alt="3D výtlačok 1">
-      <img src="assets/model2.jpg" alt="3D výtlačok 2">
-      <img src="assets/model3.jpg" alt="3D výtlačok 3">
+    <div class="projects">
+
+      <!-- Projekt 1 -->
+      <div class="project" data-images="assets/projekt1/main.jpg,assets/projekt1/2.jpg,assets/projekt1/3.jpg">
+        <img class="project-main" src="assets/projekt1/main.jpg" alt="Projekt 1">
+      </div>
+
+      <!-- Projekt 2 -->
+      <div class="project" data-images="assets/projekt2/main.jpg,assets/projekt2/2.jpg,assets/projekt2/3.jpg">
+        <img class="project-main" src="assets/projekt2/main.jpg" alt="Projekt 2">
+      </div>
+
+      <!-- Projekt 3 -->
+      <div class="project" data-images="assets/projekt3/main.jpg,assets/projekt3/2.jpg,assets/projekt3/3.jpg">
+        <img class="project-main" src="assets/projekt3/main.jpg" alt="Projekt 3">
+      </div>
+
     </div>
   </section>
 
@@ -40,41 +53,67 @@
   <!-- LIGHTBOX -->
   <div id="lightbox" class="lightbox">
     <span class="close">&times;</span>
+    <span class="prev">&#10094;</span>
     <img class="lightbox-img" src="">
+    <span class="next">&#10095;</span>
   </div>
 
- <script>
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.querySelector('.lightbox-img');
-  const closeBtn = document.querySelector('.close');
-  const galleryImages = document.querySelectorAll('.gallery img');
+  <!-- SCRIPT -->
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.querySelector('.lightbox-img');
+    const closeBtn = document.querySelector('.close');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
 
-  galleryImages.forEach(img => {
-    img.addEventListener('click', () => {
+    let currentProjectImages = [];
+    let currentIndex = 0;
+
+    document.querySelectorAll('.project-main').forEach(img => {
+      img.addEventListener('click', () => {
+        currentProjectImages = img.parentElement.dataset.images.split(',');
+        currentIndex = 0;
+        openLightbox();
+      });
+    });
+
+    function openLightbox() {
       lightbox.style.display = 'flex';
-      
-      // reset efektov pred spustením animácie
       lightbox.style.opacity = 0;
       lightboxImg.style.transform = 'scale(0.8)';
+      lightboxImg.src = currentProjectImages[currentIndex];
 
-      lightboxImg.src = img.src;
-      lightboxImg.alt = img.alt;
-
-      // krátke oneskorenie, aby sa animácia spustila znova
       setTimeout(() => {
         lightbox.style.opacity = 1;
         lightboxImg.style.transform = 'scale(1)';
       }, 10);
+    }
+
+    function showNext() {
+      currentIndex = (currentIndex + 1) % currentProjectImages.length;
+      lightboxImg.src = currentProjectImages[currentIndex];
+    }
+
+    function showPrev() {
+      currentIndex = (currentIndex - 1 + currentProjectImages.length) % currentProjectImages.length;
+      lightboxImg.src = currentProjectImages[currentIndex];
+    }
+
+    closeBtn.addEventListener('click', () => { lightbox.style.display = 'none'; });
+    prevBtn.addEventListener('click', showPrev);
+    nextBtn.addEventListener('click', showNext);
+
+    lightbox.addEventListener('click', (e) => {
+      if(e.target === lightbox) lightbox.style.display = 'none';
     });
-  });
 
-  closeBtn.addEventListener('click', () => {
-    lightbox.style.display = 'none';
-  });
-
-  lightbox.addEventListener('click', (e) => {
-    if(e.target === lightbox) lightbox.style.display = 'none';
-  });
-</script>
+    document.addEventListener('keydown', (e) => {
+      if(lightbox.style.display === 'flex'){
+        if(e.key === 'ArrowRight') showNext();
+        if(e.key === 'ArrowLeft') showPrev();
+        if(e.key === 'Escape') lightbox.style.display = 'none';
+      }
+    });
+  </script>
 </body>
 </html>
