@@ -11,7 +11,7 @@ body {
 /* Header hero section */
 .hero {
   position: relative;
-  background: url('assets/projekt1/main.jpg') center/cover no-repeat;
+  background: url('assets/head.jpg') center/cover no-repeat;
   height: 90vh;
   display: flex;
   justify-content: center;
