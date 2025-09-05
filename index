@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JKDesign3D – 3D tlač & CAD návrhy</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>JKDesign3D</h1>
+    <p>3D tlač • CAD návrhy • Kreatívne projekty</p>
+  </header>
+
+  <section id="portfolio">
+    <h2>Portfólio</h2>
+    <div class="gallery">
+      <img src="assets/model1.jpg" alt="3D výtlačok 1">
+      <img src="assets/model2.jpg" alt="3D výtlačok 2">
+      <img src="assets/model3.jpg" alt="3D výtlačok 3">
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Kontakt</h2>
+    <p>📞 0949 233 088</p>
+    <p>✉️ jannkuchar@gmail.com</p>
+    <p>🌍 <a href="https://www.facebook.com/JKdesignprint" target="_blank">Facebook: JK design & print</a></p>
+  </section>
+
+  <footer>
+    <p>© 2025 JKDesign3D</p>
+  </footer>
+</body>
+</html>
