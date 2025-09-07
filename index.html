@@ -23,7 +23,7 @@
 
     header {
       position: relative;
-      background: linear-gradient(to right, #0d0d0d, #73849c);
+      background: linear-gradient(to right, #0d0d0d, #222);
       color: #fff;
       text-align: center;
       padding: 4rem 2rem;
@@ -91,3 +91,188 @@
       transform: scale(0.95);
     }
     .lightbox.show img.lightbox-content {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .close, .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2rem;
+      color: #fff;
+      cursor: pointer;
+      user-select: none;
+      padding: 0.5rem;
+      background: rgba(0,0,0,0.5);
+      border-radius: 50%;
+    }
+    .close { top: 5%; right: 5%; transform: none; }
+    .prev { left: 5%; }
+    .next { right: 5%; }
+
+    .thumbnails {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      margin-top: 1rem;
+      max-width: 90%;
+      padding-bottom: 0.5rem;
+    }
+    .thumbnails img {
+      height: 60px;
+      cursor: pointer;
+      opacity: 0.6;
+      border-radius: 6px;
+      transition: opacity 0.3s, transform 0.3s;
+    }
+    .thumbnails img.active {
+      opacity: 1;
+      transform: scale(1.1);
+      border: 2px solid #ffdd55;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #111;
+      color: #ccc;
+      font-size: 0.9rem;
+    }
+    footer a { color: #ffdd55; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="dark-mode">
+
+  <header>
+    <button class="theme-toggle">☀️ Svetlý režim</button>
+    <h1>JK design 3D</h1>
+    <p>Zakázková 3D tlač & kreatívny dizajn</p>
+  </header>
+
+  <section class="gallery">
+    <img src="project1/img1.jpg" alt="Projekt 1" data-project="project1">
+    <img src="project2/img1.jpg" alt="Projekt 2" data-project="project2">
+    <img src="project3/img1.jpg" alt="Projekt 3" data-project="project3">
+  </section>
+
+  <div class="lightbox" id="lightbox">
+    <span class="close">&times;</span>
+    <span class="prev">&#10094;</span>
+    <img class="lightbox-content" id="lightbox-img">
+    <span class="next">&#10095;</span>
+    <div class="thumbnails" id="thumbnails"></div>
+  </div>
+
+  <footer>
+    <p>Kontakt: <a href="mailto:jannkuchar@gmail.com">jannkuchar@gmail.com</a> | Tel: <a href="tel:+421949233088">+421 949 233 088</a></p>
+    <p>&copy; 2025 JK design 3D</p>
+  </footer>
+
+<script>
+const projects = {
+  project1: ["project1/img1.jpg","project1/img2.jpg","project1/img3.jpg"],
+  project2: ["project2/img1.jpg","project2/img2.jpg","project2/img3.jpg"],
+  project3: ["project3/img1.jpg","project3/img2.jpg","project3/img3.jpg"]
+};
+
+const galleryImages = document.querySelectorAll(".gallery img");
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+const thumbnails = document.getElementById("thumbnails");
+const closeBtn = document.querySelector(".close");
+const prevBtn = document.querySelector(".prev");
+const nextBtn = document.querySelector(".next");
+
+let currentProject = null;
+let currentIndex = 0;
+
+function updateThumbnails() {
+  thumbnails.innerHTML = "";
+  projects[currentProject].forEach((src, i) => {
+    const thumb = document.createElement("img");
+    thumb.src = src;
+    if(i===currentIndex) thumb.classList.add("active");
+    thumb.addEventListener("click",()=>{ showImage(i); });
+    thumbnails.appendChild(thumb);
+  });
+}
+
+function showImage(index){
+  currentIndex = index;
+  lightbox.classList.add("show");
+  lightboxImg.style.opacity = 0;
+  lightboxImg.style.transform = "scale(0.95)";
+
+  setTimeout(() => {
+    lightboxImg.src = projects[currentProject][currentIndex];
+    lightboxImg.style.opacity = 1;
+    lightboxImg.style.transform = "scale(1)";
+  }, 50);
+
+  updateThumbnails();
+}
+
+galleryImages.forEach(img=>{
+  img.addEventListener("click",()=>{
+    currentProject = img.dataset.project;
+    lightbox.style.display = "flex";
+    showImage(0);
+  });
+});
+
+closeBtn.addEventListener("click",()=>{
+  lightbox.classList.remove("show");
+  setTimeout(()=>{ lightbox.style.display="none"; }, 400);
+});
+
+prevBtn.addEventListener("click",()=>{
+  currentIndex = (currentIndex-1+projects[currentProject].length)%projects[currentProject].length;
+  showImage(currentIndex);
+});
+nextBtn.addEventListener("click",()=>{
+  currentIndex = (currentIndex+1)%projects[currentProject].length;
+  showImage(currentIndex);
+});
+
+document.addEventListener("keydown",(e)=>{
+  if(lightbox.style.display!=="flex") return;
+  switch(e.key){
+    case "ArrowLeft": prevBtn.click(); break;
+    case "ArrowRight": nextBtn.click(); break;
+    case "Escape": closeBtn.click(); break;
+  }
+});
+
+/* Prepínač tmavého/svetlého režimu */
+const themeToggle = document.querySelector(".theme-toggle");
+themeToggle.addEventListener("click", () => {
+  if (document.body.classList.contains("dark-mode")) {
+    document.body.classList.remove("dark-mode");
+    document.body.classList.add("light-mode");
+    themeToggle.textContent = "🌙 Tmavý režim";
+    localStorage.setItem("theme", "light");
+  } else {
+    document.body.classList.remove("light-mode");
+    document.body.classList.add("dark-mode");
+    themeToggle.textContent = "☀️ Svetlý režim";
+    localStorage.setItem("theme", "dark");
+  }
+});
+
+// Načítanie preferencie z localStorage
+window.addEventListener("load", () => {
+  const savedTheme = localStorage.getItem("theme") || "dark";
+  document.body.classList.remove("dark-mode","light-mode");
+  document.body.classList.add(savedTheme+"-mode");
+  themeToggle.textContent = savedTheme === "dark" ? "☀️ Svetlý režim" : "🌙 Tmavý režim";
+});
+</script>
+
+</body>
+</html>
