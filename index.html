@@ -241,13 +241,6 @@ closeBtn.addEventListener("click",()=>{
   thumbnails.style.transform="translateX(0)";
 });
 
-  // Zavrie lightbox kliknutím mimo obrázka
-lightbox.addEventListener("click", (e) => {
-  if (e.target === lightbox) {
-    lightbox.style.display = "none";
-    lightbox.style.opacity = "0";
-  }
-});
 
 prev.addEventListener("click",()=>{ currentIndex=(currentIndex-1+projects[currentProject].length)%projects[currentProject].length; showImage(currentIndex); });
 next.addEventListener("click",()=>{ currentIndex=(currentIndex+1)%projects[currentProject].length; showImage(currentIndex); });
