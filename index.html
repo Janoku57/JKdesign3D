@@ -3,15 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JK Design & print - 3D Tlač a Modelovanie pre každého</title>
-<meta name="description" content="Už žiadne hľadanie! Navrhneme a Vytlačíme presne to, čo potrebujete. Náhradné diely, kutilské projekty a unikátne darčeky vďaka 3D tlači.">
+<title>JK Design & print</title>
+<meta name="description" content="JKDesign3D - Portfólio 3D tlače a CAD projektov. Moderný dizajn s galériou a lightboxom.">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --accent: #d5f7ed; /* Svetlomodrá/tyrkysová */
-  --bg: #f9f9f9;
-  --text: #222;
-  --secondary-bg: #1c1c1c; /* Tmavšia farba pre sekciu */
+  --accent: #d5f7ed;
+  --bg: #f9f9f9;
+  --text: #222;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -20,138 +19,79 @@ body { font-family: 'Montserrat', sans-serif; background: #121212; color: #eee; 
 
 /* HERO / HEADER */
 .hero-header {
-  position: relative;
-  width: 100%;
-  height: 400px;
-  background: linear-gradient(to right, #222, #73849c);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 400px;
+  background: linear-gradient(to right, #222, #73849c);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 .hero-header::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: url('assets/head.jpg') center/cover no-repeat;
-  opacity: 0.3;
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('assets/head.jpg') center/cover no-repeat;
+  opacity: 0.3;
 }
 .hero-header .overlay {
-  position: relative;
-  text-align: center;
-  color: #fff;
+  position: relative;
+  text-align: center;
+  color: #fff;
 }
 .hero-header h1 {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 10px;
-  animation: fadeDown 1s ease forwards;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  animation: fadeDown 1s ease forwards;
 }
 .hero-header p {
-  font-size: 1.2rem;
-  color: var(--accent);
-  animation: fadeUp 1s ease 0.5s forwards;
+  font-size: 1.2rem;
+  color: var(--accent);
+  animation: fadeUp 1s ease 0.5s forwards;
 }
 .hero-header a { color: var(--accent); text-decoration: none; }
 .hero-header a:hover { text-decoration: underline; }
 
-/* --- NOVÁ SEKCIA POPISU --- */
-.description-section {
-  background: var(--secondary-bg);
-  padding: 60px 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-  border-radius: 10px;
-  margin-top: -50px; /* Vizuálny presah pod hlavičku */
-  position: relative;
-  z-index: 5;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}
-.description-section h2 {
-  font-size: 2rem;
-  color: var(--accent);
-  margin-bottom: 30px;
-  text-align: center;
-}
-.description-section h3 {
-  font-size: 1.4rem;
-  color: #fff;
-  margin-top: 25px;
-  margin-bottom: 10px;
-}
-.description-section p, .description-section ul {
-  font-size: 1.05rem;
-  line-height: 1.7;
-  margin-bottom: 15px;
-}
-.description-section ul {
-  list-style: none;
-  padding-left: 0;
-}
-.description-section ul li {
-  padding-left: 25px;
-  position: relative;
-  margin-bottom: 8px;
-}
-.description-section ul li::before {
-  content: '👉'; 
-  position: absolute;
-  left: 0;
-  color: var(--accent);
-}
-.contact-info {
-  text-align: center;
-  margin-top: 40px;
-  padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-.contact-info a {
-  color: var(--accent);
-  font-weight: 700;
-  font-size: 1.1rem;
-}
-
-
 /* GALÉRIA */
 .gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-  gap: 20px;
-  padding: 40px;
-  max-width: 1200px;
-  margin: 40px auto; 
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 20px;
+  padding: 40px;
 }
 .gallery img {
-  width: 100%;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .gallery img:hover { transform: scale(1.05); box-shadow: 0 15px 25px rgba(0,0,0,0.2); }
 
 /* LIGHTBOX */
 .lightbox {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.95);
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  z-index: 1000;
-  animation: fade 0.4s ease;
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.95);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 1000;
+  animation: fade 0.4s ease;
 }
 .lightbox-content {
-  max-width: 80%;
-  max-height: 70vh;
-  border-radius: 12px;
-  transition: transform 0.5s ease, opacity 0.5s ease;
-  opacity: 0;
-  transform: scale(0.95);
+  max-width: 80%;
+  max-height: 70vh;
+  border-radius: 12px;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  opacity: 0;
+  transform: scale(0.95);
 }
 .lightbox.show img.lightbox-content {
-  opacity: 1;
-  transform: scale(1);
+  opacity: 1;
+  transform: scale(1);
 }
 .close { position: absolute; top: 20px; right: 30px; font-size: 40px; color: #fff; cursor: pointer; transition: color 0.3s; }
 .close:hover { color: var(--accent); }
@@ -168,16 +108,16 @@ body { font-family: 'Montserrat', sans-serif; background: #121212; color: #eee; 
 
 /* ŠÍPKY CAROUSEL */
 .thumb-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 30px;
-  color: #fff;
-  background: rgba(0,0,0,0.5);
-  border-radius: 50%;
-  padding: 5px 10px;
-  cursor: pointer;
-  transition: background 0.3s;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 30px;
+  color: #fff;
+  background: rgba(0,0,0,0.5);
+  border-radius: 50%;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 .thumb-arrow:hover { background: rgba(255,255,255,0.3); }
 .thumb-left { left: -40px; }
@@ -198,96 +138,75 @@ footer a:hover { text-decoration: underline; }
 <body>
 
 <header class="hero-header">
-  <div class="overlay">
-    <h1>JK Design & print</h1>
-    <p>3D tlač | CAD projekty | Modelovanie dielov | <a href="mailto:jannkuchar@gmail.com">jannkuchar@gmail.com</a> | +421 949 233 088</p>
-  </div>
+  <div class="overlay">
+    <h1>JK Design & print</h1>
+    <p>3D tlač | CAD projekty | Modelovanie dielov | <a href="mailto:jannkuchar@gmail.com">jannkuchar@gmail.com</a> | +421 949 233 088</p>
+  </div>
 </header>
 
+<section class="o-mne">
+        <h2>O nás</h2>
+        <p>Toto je ukážkový text pre novú sekciu. Môžete sem umiestniť akýkoľvek obsah, ako napríklad informácie o vašej firme, produkte alebo službe.</p>
+        <p>Môžete pridať aj viac odsekov, zoznamy, alebo obrázky.</p>
+    </section>
 
-<section class="description-section">
-  <h2>Váš Osobný 3D Tvorca a Záchranca vecí.</h2>
-  
-  <p>Všetci to poznáme: rozbije sa malá plastová časť, ktorá sa nedá nikde kúpiť. Alebo máte skvelý nápad na vylepšenie domácnosti, no neviete ho zrealizovať. My v **JKDesign & Print** sme tu, aby sme Vám pomohli. Sme šikovná firma, ktorá spája **navrhovanie (modelovanie)** a **tlač (3D tlač)** vecí na mieru pre bežných ľudí. Nezáleží na tom, či ste kutil, alebo len potrebujete vyriešiť malý domáci problém – postaráme sa o to, aby bol Váš nápad dokonale pretvorený do reálneho, funkčného produktu.</p>
 
-  <h3>Čo pre Vás vieme Vytvoriť?</h3>
-  
-  <h4>1. Záchrana a Náhradné Diely 🛠️</h4>
-  <p>Pokazený držiak, ulomený kryt, chýbajúca plastová nožička na nábytok? Ak je to plastové, dokážeme to!</p>
-  <ul>
-    <li>**Reprodukcia dielu:** Vyrobíme presnú kópiu súčiastky, ktorá sa Vám pokazila alebo stratila (často aj pevnejšiu ako originál).</li>
-    <li>**Vylepšenie a prispôsobenie:** Ak chcete, aby bol nový diel trochu väčší, inej farby, alebo s malou zmenou – žiaden problém.</li>
-  </ul>
 
-  <h4>2. Modelovanie na Mieru (Máte nápad, my ho nakreslíme) 📐</h4>
-  <p>Máte v hlave skicu, náčrt alebo jasnú predstavu? Stačí nám to ukázať! Navrhneme presný digitálny model pre Váš:</p>
-  <ul>
-    <li>**Projekty pre kutilov:** Držiaky na náradie, organizéry, špeciálne úchytky – všetko, čo Vám zjednoduší život.</li>
-  </ul>
-  
-  <h4>3. Unikátne Darčeky a Dekorácie 🎁</h4>
-  <p>Chcete darovať niečo, čo nikto iný nemá? Vytvoríme **personalizované darčeky**, modely či dekorácie s menom, dátumom alebo špeciálnym tvarom.</p>
-
-  <div class="contact-info">
-    <h3>**Stop hľadaniu! Začnite Tvoriť!**</h3>
-    <p>Pokazilo sa Vám niečo? Alebo máte nápad, ktorý Vám nedá spať? Napíšte nám, pošlite fotku súčiastky alebo náčrt Vášho projektu. Radi Vám nezáväzne povieme, aká bude cena a kedy to budete mať hotové.</p>
-    <p>Kontakt: <a href="mailto:jannkuchar@gmail.com">jannkuchar@gmail.com</a> | Tel: <a href="tel:+421949233088">+421 949 233 088</a></p>
-  </div>
-</section>
-  
- <section class="gallery">
-  <img src="assets/projekt1/main.jpg" data-project="projekt1" alt="Projekt 1">
-  <img src="assets/projekt2/main.jpg" data-project="projekt2" alt="Projekt 2">
-  <img src="assets/projekt3/main.jpg" data-project="projekt3" alt="Projekt 3">
-  <img src="assets/projekt4/main.jpg" data-project="projekt4" alt="Projekt 4">
-  <img src="assets/projekt5/main.jpg" data-project="projekt5" alt="Projekt 5">
-  <img src="assets/projekt6/main.jpg" data-project="projekt6" alt="Projekt 6">
-  <img src="assets/projekt7/main.jpg" data-project="projekt7" alt="Projekt 7">
-  <img src="assets/projekt8/main.jpg" data-project="projekt8" alt="Projekt 8">
-  <img src="assets/projekt9/main.jpg" data-project="projekt9" alt="Projekt 9">
-  <img src="assets/projekt10/main.jpg" data-project="projekt10" alt="Projekt 10">
+  
+  
+ <section class="gallery">
+  <img src="assets/projekt1/main.jpg" data-project="projekt1" alt="Projekt 1">
+  <img src="assets/projekt2/main.jpg" data-project="projekt2" alt="Projekt 2">
+  <img src="assets/projekt3/main.jpg" data-project="projekt3" alt="Projekt 3">
+  <img src="assets/projekt4/main.jpg" data-project="projekt4" alt="Projekt 4">
+  <img src="assets/projekt5/main.jpg" data-project="projekt5" alt="Projekt 5">
+  <img src="assets/projekt6/main.jpg" data-project="projekt6" alt="Projekt 6">
+  <img src="assets/projekt7/main.jpg" data-project="projekt7" alt="Projekt 7">
+  <img src="assets/projekt8/main.jpg" data-project="projekt8" alt="Projekt 8">
+  <img src="assets/projekt9/main.jpg" data-project="projekt9" alt="Projekt 9">
+  <img src="assets/projekt10/main.jpg" data-project="projekt10" alt="Projekt 10">
 </section>
 
 <div class="lightbox" id="lightbox">
-  <span class="close" id="closeBtn">&times;</span>
-  <span class="arrow left" id="prev">&#10094;</span>
-  <img class="lightbox-content" id="lightbox-img">
-  <span class="arrow right" id="next">&#10095;</span>
+  <span class="close" id="closeBtn">&times;</span>
+  <span class="arrow left" id="prev">&#10094;</span>
+  <img class="lightbox-content" id="lightbox-img">
+  <span class="arrow right" id="next">&#10095;</span>
 
-  <div class="thumbnail-container">
-    <span class="thumb-arrow thumb-left" id="thumbPrev">&#10094;</span>
-    <div class="thumbnails" id="thumbnails"></div>
-    <span class="thumb-arrow thumb-right" id="thumbNext">&#10095;</span>
-  </div>
+  <div class="thumbnail-container">
+    <span class="thumb-arrow thumb-left" id="thumbPrev">&#10094;</span>
+    <div class="thumbnails" id="thumbnails"></div>
+    <span class="thumb-arrow thumb-right" id="thumbNext">&#10095;</span>
+  </div>
 </div>
 
 <footer>
-  &copy; 2025 JKDesign3D | Kontakt: <a href="mailto:jannkuchar@gmail.com">jannkuchar@gmail.com</a> | Tel: +421 949 233 088 | <a href="https://www.facebook.com/JKdesign3D" target="_blank">Facebook</a>
+  &copy; 2025 JKDesign3D | Kontakt: <a href="mailto:jannkuchar@gmail.com">jannkuchar@gmail.com</a> | Tel: +421 949 233 088 | <a href="https://www.facebook.com/JKdesign3D" target="_blank">Facebook</a>
 </footer>
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4529832412383939"
-     crossorigin="anonymous"></script>
+     crossorigin="anonymous"></script>
 
 
 
 
 
 
-  
+  
 
-  
+  
 <script>
 const projects = {
-  projekt1:["assets/projekt1/main.jpg","assets/projekt1/2.jpg","assets/projekt1/3.jpg"],
-  projekt2:["assets/projekt2/main.jpg","assets/projekt2/2.jpg"],
-  projekt3:["assets/projekt3/main.jpg","assets/projekt3/2.jpg"],
-  projekt4:["assets/projekt4/main.jpg","assets/projekt4/2.jpg"],
-  projekt5:["assets/projekt5/main.jpg","assets/projekt5/2.jpg","assets/projekt5/3.jpg","assets/projekt5/4.jpg"],
-  projekt6:["assets/projekt6/main.jpg","assets/projekt6/2.jpg","assets/projekt6/3.jpg"],
-  projekt7:["assets/projekt7/main.jpg","assets/projekt7/2.jpg","assets/projekt7/3.jpg","assets/projekt7/4.jpg","assets/projekt7/5.jpg"],
-  projekt8:["assets/projekt8/main.jpg","assets/projekt8/2.jpg","assets/projekt8/3.jpg","assets/projekt8/4.jpg","assets/projekt8/5.jpg"],
-  projekt9:["assets/projekt9/main.jpg","assets/projekt9/2.jpg","assets/projekt9/3.jpg","assets/projekt9/4.jpg"],
-  projekt10:["assets/projekt10/main.jpg","assets/projekt10/2.jpg"],
+  projekt1:["assets/projekt1/main.jpg","assets/projekt1/2.jpg","assets/projekt1/3.jpg"],
+  projekt2:["assets/projekt2/main.jpg","assets/projekt2/2.jpg"],
+  projekt3:["assets/projekt3/main.jpg","assets/projekt3/2.jpg"],
+  projekt4:["assets/projekt4/main.jpg","assets/projekt4/2.jpg"],
+  projekt5:["assets/projekt5/main.jpg","assets/projekt5/2.jpg","assets/projekt5/3.jpg","assets/projekt5/4.jpg"],
+  projekt6:["assets/projekt6/main.jpg","assets/projekt6/2.jpg","assets/projekt6/3.jpg"],
+  projekt7:["assets/projekt7/main.jpg","assets/projekt7/2.jpg","assets/projekt7/3.jpg","assets/projekt7/4.jpg","assets/projekt7/5.jpg"],
+  projekt8:["assets/projekt8/main.jpg","assets/projekt8/2.jpg","assets/projekt8/3.jpg","assets/projekt8/4.jpg","assets/projekt8/5.jpg"],
+  projekt9:["assets/projekt9/main.jpg","assets/projekt9/2.jpg","assets/projekt9/3.jpg","assets/projekt9/4.jpg"],
+  projekt10:["assets/projekt10/main.jpg","assets/projekt10/2.jpg"],
 };
 
 const galleryImages=document.querySelectorAll(".gallery img");
@@ -304,53 +223,53 @@ let currentProject=null;
 let currentIndex=0;
 
 function showImage(index){
-  currentIndex=index;
-  lightbox.classList.add("show");
-  lightboxImg.style.opacity=0;
-  lightboxImg.style.transform="scale(0.95)";
-  setTimeout(()=>{
-    lightboxImg.src=projects[currentProject][currentIndex];
-    lightboxImg.style.opacity=1;
-    lightboxImg.style.transform="scale(1)";
-  },50);
-  updateThumbnails();
-  scrollToActive();
+  currentIndex=index;
+  lightbox.classList.add("show");
+  lightboxImg.style.opacity=0;
+  lightboxImg.style.transform="scale(0.95)";
+  setTimeout(()=>{
+    lightboxImg.src=projects[currentProject][currentIndex];
+    lightboxImg.style.opacity=1;
+    lightboxImg.style.transform="scale(1)";
+  },50);
+  updateThumbnails();
+  scrollToActive();
 }
 
 function updateThumbnails(){
-  thumbnails.innerHTML="";
-  projects[currentProject].forEach((src,i)=>{
-    const thumb=document.createElement("img");
-    thumb.src=src;
-    if(i===currentIndex) thumb.classList.add("active");
-    thumb.addEventListener("click",()=>showImage(i));
-    thumbnails.appendChild(thumb);
-  });
+  thumbnails.innerHTML="";
+  projects[currentProject].forEach((src,i)=>{
+    const thumb=document.createElement("img");
+    thumb.src=src;
+    if(i===currentIndex) thumb.classList.add("active");
+    thumb.addEventListener("click",()=>showImage(i));
+    thumbnails.appendChild(thumb);
+  });
 }
 
 function scrollToActive(){
-  const activeThumb=thumbnails.querySelector(".active");
-  if(!activeThumb) return;
-  const container=thumbnails.parentElement;
-  const containerCenter=container.offsetWidth/2;
-  const activeCenter=activeThumb.offsetLeft+activeThumb.offsetWidth/2;
-  const scrollPos=activeCenter-containerCenter;
-  thumbnails.style.transform=`translateX(${-scrollPos}px)`;
+  const activeThumb=thumbnails.querySelector(".active");
+  if(!activeThumb) return;
+  const container=thumbnails.parentElement;
+  const containerCenter=container.offsetWidth/2;
+  const activeCenter=activeThumb.offsetLeft+activeThumb.offsetWidth/2;
+  const scrollPos=activeCenter-containerCenter;
+  thumbnails.style.transform=`translateX(${-scrollPos}px)`;
 }
 
 galleryImages.forEach(img=>{
-  img.addEventListener("click",()=>{
-    currentProject=img.dataset.project;
-    lightbox.style.display="flex";
-    lightbox.classList.add("show");
-    showImage(0);
-  });
+  img.addEventListener("click",()=>{
+    currentProject=img.dataset.project;
+    lightbox.style.display="flex";
+    lightbox.classList.add("show");
+    showImage(0);
+  });
 });
 
 closeBtn.addEventListener("click",()=>{
-  lightbox.classList.remove("show");
-  setTimeout(()=>{ lightbox.style.display="none"; },400);
-  thumbnails.style.transform="translateX(0)";
+  lightbox.classList.remove("show");
+  setTimeout(()=>{ lightbox.style.display="none"; },400);
+  thumbnails.style.transform="translateX(0)";
 });
 
 
@@ -361,12 +280,12 @@ thumbPrev.addEventListener("click",()=>{ thumbnails.scrollBy({left:-100,behavior
 thumbNext.addEventListener("click",()=>{ thumbnails.scrollBy({left:100,behavior:"smooth"}); });
 
 document.addEventListener("keydown",(e)=>{
-  if(lightbox.style.display!=="flex") return;
-  switch(e.key){
-    case "ArrowLeft": currentIndex=(currentIndex-1+projects[currentProject].length)%projects[currentProject].length; showImage(currentIndex); break;
-    case "ArrowRight": currentIndex=(currentIndex+1)%projects[currentProject].length; showImage(currentIndex); break;
-    case "Escape": lightbox.classList.remove("show"); setTimeout(()=>{ lightbox.style.display="none"; },400); thumbnails.style.transform="translateX(0)"; break;
-  }
+  if(lightbox.style.display!=="flex") return;
+  switch(e.key){
+    case "ArrowLeft": currentIndex=(currentIndex-1+projects[currentProject].length)%projects[currentProject].length; showImage(currentIndex); break;
+    case "ArrowRight": currentIndex=(currentIndex+1)%projects[currentProject].length; showImage(currentIndex); break;
+    case "Escape": lightbox.classList.remove("show"); setTimeout(()=>{ lightbox.style.display="none"; },400); thumbnails.style.transform="translateX(0)"; break;
+  }
 });
 </script>
 
