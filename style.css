@@ -47,6 +47,28 @@ body {
   to { opacity: 1; }
 }
 
+/* Štýly pre popis sekciu */
+.o-mne {
+    padding: 40px; /* Pridá vnútorný priestor okolo obsahu */
+    margin: 20px auto; /* Centruje sekciu na stránke (ak má obmedzenú šírku) */
+    background-color: #f4f4f4; /* Svetlé pozadie pre oddelenie od iného obsahu */
+    border-radius: 8px; /* Zaoblené rohy */
+    max-width: 800px; /* Maximálna šírka sekcie */
+}
+
+.o-mne h2 {
+    color: #333;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 10px;
+}
+
+.o-mne p {
+    line-height: 1.6;
+    color: #666;
+}
+
+
+
 /* Sections */
 section {
   padding: 3rem 1rem;
